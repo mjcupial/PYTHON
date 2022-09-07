@@ -17,8 +17,11 @@ class FiboSeq:
         return seq
 
     def draw_created_Fibo(self, seq):
-        plt.plot(seq, 'ro')
-        plt.ylabel('Fibo numbers')
+        plt.plot(seq, 'bo')
+        plt.title("Fibonacci sequence")
+        plt.ylabel("value")
+        plt.xlabel("index")
+        plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
         plt.show()
 
     def even_seq(self, seq):
@@ -33,7 +36,7 @@ class FiboSeq:
 
 
 fibo1 = FiboSeq()
-fib = fibo1.create_Fibo()
-# fibo1.even_seq(fib)
-# fibo1.odd_seq(fib)
+fib = fibo1.create_Fibo(30,40)
+fibo1.even_seq(fib)
+fibo1.odd_seq(fib)
 fibo1.draw_created_Fibo(fib)
