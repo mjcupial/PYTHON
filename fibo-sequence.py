@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 class FiboSeq:
     def __init__(self):
         self.__name = "Fibonacci"
@@ -15,6 +16,11 @@ class FiboSeq:
         print(f"That's your {self.__name} sequence:\n{seq}")
         return seq
 
+    def draw_created_Fibo(self, seq):
+        plt.plot(seq, 'ro')
+        plt.ylabel('Fibo numbers')
+        plt.show()
+
     def even_seq(self, seq):
         even_seq = [even for even in seq if even % 2 == 0]
         print(f"There are {len(even_seq)} even element(s):\n{even_seq}")
@@ -27,7 +33,7 @@ class FiboSeq:
 
 
 fibo1 = FiboSeq()
-fib = fibo1.create_Fibo(4)
-fibo1.even_seq(fib)
-fibo1.odd_seq(fib)
-
+fib = fibo1.create_Fibo()
+# fibo1.even_seq(fib)
+# fibo1.odd_seq(fib)
+fibo1.draw_created_Fibo(fib)
