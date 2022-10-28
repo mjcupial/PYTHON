@@ -24,14 +24,15 @@ while url:
         })
     next_btn = soup.find(class_="next")
     url = next_btn.find("a")["href"] if next_btn else None
-    # sleep(2)    # --> do not overload the server in each requests, be polite
+    # sleep(2)    #--> do not overload the server in each requests, be polite
 
 #### THE GAME LOGIC ####
 quote = choice(all_quotes)
 remaining_guesses = 4
 print("Here is a quote: " + quote["text"])
-print(quote["text"] + quote["author"])
+# print(quote["text"] + quote["author"]) #-->  hint
 guess = ''
-while guess.lower() != quote["author"].lower():
+while guess.lower() != quote["author"].lower() and remaining_guesses > 0:
     guess = input(f"Who said this quote? Guess remaining: {remaining_guesses}")
+    remaining_guesses -= 1
 print("AFTER WHILE LOOP")
