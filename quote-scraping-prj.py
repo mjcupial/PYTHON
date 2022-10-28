@@ -24,7 +24,7 @@ def scrape_quotes():
             })
         next_btn = soup.find(class_="next")
         url = next_btn.find("a")["href"] if next_btn else None
-        sleep(2)    #--> do not overload the server in each requests, be polite and set sleep
+        # sleep(2)    #--> do not overload the server in each requests, be polite and set sleep
     return all_quotes
 def start_game(quotes):
     quote = choice(quotes)
