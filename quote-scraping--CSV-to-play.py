@@ -65,5 +65,5 @@ def start_game(quotes):
         print("OK, Goodbye!")
 
 # quotes = read_quotes("quotes.csv")
-quotes = scrape_quotes(quotes)
+quotes = scrape_quotes()
 start_game(quotes)
