@@ -24,7 +24,7 @@ while url:
         })
     next_btn = soup.find(class_="next")
     url = next_btn.find("a")["href"] if next_btn else None
-    # sleep(2)    #--> do not overload the server in each requests, be polite
+    sleep(2)    #--> do not overload the server in each requests, be polite
 
 #### THE GAME LOGIC ####
 quote = choice(all_quotes)
@@ -35,4 +35,14 @@ guess = ''
 while guess.lower() != quote["author"].lower() and remaining_guesses > 0:
     guess = input(f"Who said this quote? Guess remaining: {remaining_guesses}")
     remaining_guesses -= 1
+    if remaining_guesses == 3:
+        res = requests.get(f"{base_url}{quote['bio']}")
+        soup = BeautifulSoup(res.text, "html.parser")
+        birth_date = soup.find(class_="author-born-date").get_text()
+        birth_place = soup.find(class_="author-born-location").get_text()
+        print(f"Here's a hint:\nThe author was born in {birth_place} in {birth_date}")
+
+
+
+
 print("AFTER WHILE LOOP")
