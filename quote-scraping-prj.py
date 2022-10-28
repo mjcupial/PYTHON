@@ -9,7 +9,7 @@ from random import choice
 
 all_quotes = []
 base_url="http://quotes.toscrape.com"
-url = "/page/1"
+url = "/page/1/"
 
 while url:
     res = requests.get(f"{base_url}{url}")
@@ -50,5 +50,5 @@ while guess.lower() != quote["author"].lower() and remaining_guesses > 0:
         last_initial = quote["author"].split(" ")[1][0]
         print(f"Here's a hint: The author's last name starts with: {last_initial}")
     else:
-        print(f"Sorry you ran out of guesses. The answer was {quote['author']}"
+        print(f"Sorry you ran out of guesses. The answer was {quote['author']}")
 print("End of the game")
