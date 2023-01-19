@@ -6,7 +6,7 @@ class ActivityTests(unittest.TestCase):
         """eat should have a positive message for healthy eating"""
         self.assertEqual(
             eat("broccoli", is_healthy=True),
-            "I'm eating broccoli, becaFAILuse my body is a temple"
+            "I'm eating broccoli, because my body is a temple"
         )
     def test_eat_unhealthy(self):
         """eat should indicate you've given up for eating unhealthy"""
